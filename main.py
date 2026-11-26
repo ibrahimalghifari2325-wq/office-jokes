@@ -9,6 +9,9 @@ JOKE = "I put 'proficient in Excel' on my CV, which in office terms means I can 
 
 
 def main() -> None:
+    # The gate accepts 1-199 characters; refuse to write anything else.
+    if not 1 <= len(JOKE) <= 199:
+        raise ValueError("joke must be 1-199 characters")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8") as f:
         f.write(JOKE)
